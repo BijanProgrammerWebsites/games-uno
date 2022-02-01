@@ -1,0 +1,17 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "tsc & cd dist & nodemon main"
+    },
+    "author": "BijanProgrammer",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^16.11.8",
+        "nodemon": "^2.0.15",
+        "prettier": "^2.5.1"
+    },
+    "dependencies": {
+        "express": "^4.17.2"
+    }
+}
