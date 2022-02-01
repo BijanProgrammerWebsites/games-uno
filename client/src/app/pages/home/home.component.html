@@ -1,3 +1,11 @@
 <div class="wrapper">
     <h1>Hello, friend!</h1>
+
+    <p>id: {{ socketService.socketId }}</p>
+
+    <label>
+        <span>Room's Name</span>
+        <input type="text" [(ngModel)]="roomName" />
+    </label>
+    <button (click)="createRoom()">Create Room</button>
 </div>
