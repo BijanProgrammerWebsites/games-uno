@@ -29,4 +29,8 @@ export class SocketService {
     public createRoom(roomName: string): void {
         this.socket.emit(Events.CREATE_ROOM, {roomName});
     }
+
+    public joinRoom(roomName: string): void {
+        this.socket.emit(Events.JOIN_ROOM, {roomName});
+    }
 }

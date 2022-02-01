@@ -1,11 +1,29 @@
 <div class="wrapper">
     <h1>Hello, friend!</h1>
 
-    <p>id: {{ socketService.socketId }}</p>
+    <div class="cards">
+        <div class="card">
+            <h2>Create a New Room</h2>
 
-    <label>
-        <span>Room's Name</span>
-        <input type="text" [(ngModel)]="roomName" />
-    </label>
-    <button (click)="createRoom()">Create Room</button>
+            <div class="content">
+                <label>
+                    <span>Room's Name</span>
+                    <input type="text" [(ngModel)]="roomToBeCreated" />
+                </label>
+                <button class="success" (click)="createRoom()">Create</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Join an Existing Room</h2>
+
+            <div class="content">
+                <label>
+                    <span>Room's Name</span>
+                    <input type="text" [(ngModel)]="roomToBeJoined" />
+                </label>
+                <button class="primary" (click)="joinRoom()">Join</button>
+            </div>
+        </div>
+    </div>
 </div>

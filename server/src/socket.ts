@@ -13,7 +13,11 @@ const socket = ({io}: {io: Server}) => {
         console.log(`User with the id of ${socket.id} connected ...`);
 
         socket.on(Events.CREATE_ROOM, ({roomName}) => {
-            console.log({roomName});
+            console.log(`creating room "${roomName}" ...`);
+        });
+
+        socket.on(Events.JOIN_ROOM, ({roomName}) => {
+            console.log(`joining room "${roomName}" ...`);
         });
     });
 };
