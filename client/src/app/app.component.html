@@ -4,4 +4,8 @@
     <main>
         <router-outlet></router-outlet>
     </main>
+
+    <div id="toaster">
+        <div *ngFor="let message of toasterService.messages" class="message">{{ message }}</div>
+    </div>
 </div>

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {io, Socket} from 'socket.io-client';
+import {ToasterService} from './toaster.service';
 
 enum Events {
     REGISTER_USER = 'register user',
@@ -8,6 +9,7 @@ enum Events {
     LEAVE_ROOM = 'leave room',
     START_GAME = 'start game',
     END_GAME = 'end game',
+    ERROR = 'error',
 }
 
 @Injectable({
@@ -18,8 +20,9 @@ export class SocketService {
 
     private socket: Socket;
 
-    public constructor() {
+    public constructor(private toasterService: ToasterService) {
         this.socket = io(this.SERVER_URL);
+        this.initializeListeners();
     }
 
     public get socketId(): string {
@@ -32,5 +35,17 @@ export class SocketService {
 
     public joinRoom(roomName: string): void {
         this.socket.emit(Events.JOIN_ROOM, {roomName});
+    }
+
+    private initializeListeners(): void {
+        this.socket.on(Events.CREATE_ROOM, ({id}) => {
+            this.toasterService.toast(id);
+        });
+
+        this.socket.on(Events.JOIN_ROOM, ({id}) => {
+            this.toasterService.toast(id);
+        });
+
+        this.socket.on(Events.ERROR, ({message}) => this.toasterService.toast(message));
     }
 }

@@ -11,4 +11,32 @@
 
         padding-block: var(--shell--padding);
     }
+
+    #toaster {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 1rem;
+
+        padding: var(--shell--padding);
+
+        pointer-events: none;
+
+        .message {
+            background-color: var(--color--danger-fade);
+            color: var(--color--danger);
+
+            min-width: 24rem;
+            max-width: 40rem;
+
+            padding: 1rem 2rem;
+
+            border-radius: 0.5rem;
+        }
+    }
 }

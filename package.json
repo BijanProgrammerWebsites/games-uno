@@ -21,6 +21,7 @@
     },
     "homepage": "https://github.com/BijanProgrammerWebsites/games-uno#readme",
     "devDependencies": {
+        "@types/uuid": "^8.3.4",
         "concurrently": "^7.0.0",
         "prettier": "^2.5.1"
     }
